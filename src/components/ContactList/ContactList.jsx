@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { List, ListItem, Button } from './ContactList.styled';
 
-export function ContactList({ contacts, onRemove }) {
+export const ContactList = ({ contacts, onRemove }) => {
   return (
     <List>
       {contacts.map(({ id, name, number }, idx) => (
@@ -14,7 +14,7 @@ export function ContactList({ contacts, onRemove }) {
       ))}
     </List>
   );
-}
+};
 
 ContactList.propTypes = {
   contacts: PropTypes.arrayOf(PropTypes.object.isRequired).isRequired,
