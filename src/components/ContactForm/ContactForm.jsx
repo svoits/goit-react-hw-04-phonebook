@@ -1,21 +1,20 @@
-import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Formik, ErrorMessage } from 'formik';
 import { Button, Input, Label, StyledForm } from './ContactForm.styled';
 
-export const ContactForm = ({ onSubmit }) => {
-  const [name, setName] = useState('');
-  const [number, setNumber] = useState('');
+const defaultValues = {
+  name: '',
+  number: '',
+};
 
+export const ContactForm = ({ onSubmit }) => {
   const handleSubmitForm = (values, action) => {
-    setName(values.name);
-    setNumber(values.number);
     onSubmit(values);
     action.resetForm();
   };
 
   return (
-    <Formik initialValues={{ name, number }} onSubmit={handleSubmitForm}>
+    <Formik initialValues={defaultValues} onSubmit={handleSubmitForm}>
       <StyledForm>
         <Label>
           Name
